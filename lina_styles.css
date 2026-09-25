@@ -1,1 +1,426 @@
+/*
+    <!--
+    CARANTO, CRISIANE JOSEF A.
+    MANGALIMAN, ROLAIGNE E.
+    VELASCO, AIKEN A.
 
+    CYB 202
+    INTROWEB - FINAL REQUIREMENT - MAIN STYLESHEET
+    -->
+*/
+
+@import url("https://fonts.googleapis.com");
+
+/* VARIABLES */
+:root {
+    /* PRIMARY COLOR SCHEME */
+    --primary-red1: #C00F0C;
+    --primary-red2: #C43D3D;
+    --primary-white1: #f5f5f5;
+    --primary-white2: #ffffff;
+
+    /* COMPLEMENTARY COLOR SCHEME */
+    --text-black: #000000;
+    --button-black: #1E1E1E;
+    --border-black: #303030;
+
+    /* QUIZZES SECTION */
+    --blue: #29A8CF;
+    --green: #B8E5A8;
+    --pink: #F8A2A1;
+
+    /* FONTS */
+    --main-font: 'DM Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --logo-font: 'Dongle', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--main-font);
+    color: var(--text-black);
+}
+
+a {
+    text-decoration: none;
+}
+
+/*=====================================
+  STARTING PAGE
+=====================================*/
+.start-logo-and-desc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.start-logo-and-desc img{
+    margin: 40vh auto -10px;
+    object-fit: cover;
+    width: 25vw;
+}
+
+.start-logo-and-desc h3{
+    font-size: 3em;
+    font-weight: 400;
+    font-family: var(--logo-font);
+}
+
+.start-logo-and-desc p{
+    font-size: 1em;
+    margin-top: -20px;
+}
+
+.start-tagline{
+    margin: 32vh auto 30px;
+}
+
+.start-tagline h4{
+    text-align: center;
+}
+
+#start-link{
+    text-decoration: none;
+    color: var(--text-black);
+}
+
+/*=======================================
+  HEADER
+=======================================*/
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 45px 14px 10px;
+    gap: 15vw;
+    border-bottom: 1px solid var(--border-black);
+    background-color: var(--primary-white1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo, .right-side, #logo-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+}
+
+#logo-text {
+    width: 60px;
+}
+
+#logo, #burger-icon {
+    object-fit: cover;
+    width: 30px;
+}
+
+.account-icon #account-dp {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 35px;
+    border: 1px solid var(--border-black);
+}
+
+#search-icon {
+    object-fit: cover;
+    width: 35px;
+}
+
+/*===============================
+    MAIN FUNCTIONS
+============================== */
+.main-functions {
+    padding: 12px 10px;
+}
+
+#greeting {
+    font-size: 1.3em;
+}
+
+.functions {
+    padding: 12px 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+}
+
+/* Link Wrapper for Function Cards */
+.function-card-link {
+    width: 48%;
+    display: block;
+    text-decoration: none;
+}
+
+.function-card {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 5px;
+    background-color: var(--primary-white1);
+    border-radius: 7px;
+    border: 1px solid #303030;
+    padding: 10px;
+    width: 100%;
+    height: 10vh;
+    overflow: hidden;
+    color: var(--text-black);
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.function-card img {
+    object-fit: cover;
+    width: 40%;
+}
+
+.function-card p {
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.function-card-link:hover .function-card,
+.function-card-link:active .function-card {
+    transform: scale(0.98);
+    background-color: var(--primary-red2);
+    color: var(--primary-white1);
+}
+
+/*==============================
+    LESSONS TO DISCOVER
+==============================*/
+.discover-lessons {
+    padding: 0 10px;
+}
+
+#discover {
+    font-size: 1.3em;
+}
+
+.categories {
+    padding: 12px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 7px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.categories::-webkit-scrollbar {
+    display: none;
+}
+
+/* Link Wrapper for Category Cards */
+.category-card-link {
+    flex-shrink: 0;
+    width: 60vw;
+    display: block;
+    text-decoration: none;
+}
+
+.category-card {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 7px;
+    background-color: var(--primary-white1);
+    border-radius: 7px;
+    border: 1px solid #303030;
+    padding: 10px;
+    width: 100%;
+    height: 9vh;
+    overflow: hidden;
+    color: var(--text-black);
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.category-card img {
+    object-fit: cover;
+    width: 30%;
+}
+
+.category-card p {
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.category-card-link:hover .category-card,
+.category-card-link:active .category-card {
+    transform: scale(0.98);
+    background-color: var(--primary-red2);
+    color: var(--primary-white1);
+}
+
+/*=============================
+    RECENT ACCESSED LESSONS
+=============================*/
+.recent-lessons {
+    padding: 0 10px;
+}
+
+#recent-heading {
+    font-size: 1.3em;
+    padding-top: 15px;
+}
+
+.recent-lesson-cards{
+    display: flex;
+    flex-direction: column;
+}
+
+.dated-recent-lessons {
+    padding: 12px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 7px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.dated-recent-lessons::-webkit-scrollbar {
+    display: none;
+}
+
+.dated-recent-lessons:last-of-type{
+    margin-bottom: 11vh;
+}
+
+/* Link Wrapper for Category Cards */
+.recent-card-link {
+    flex-shrink: 0;
+    width: 60vw;
+    display: block;
+    text-decoration: none;
+}
+
+.recent-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items:start;
+    gap: 7px;
+    background-color: var(--primary-white1);
+    border-radius: 7px;
+    border: 1px solid var(--border-black);
+    padding: 10px;
+    width: 100%;
+    height: 35vh;
+    overflow: hidden;
+    color: var(--text-black);
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.recent-card .recent-img {
+    object-fit: cover;
+    width: 100%;
+    max-height: 13vh;
+    border: 1px solid var(--border-black);
+    border-radius: 4%;
+}
+
+.recent-card p {
+    font-size: 0.9em;
+    font-weight: 300;
+}
+
+.recent-card .lesson-title{
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.rating{
+    display: flex;
+    justify-content:left;
+    align-items: center;
+    gap: 7px;
+}
+
+.rating .rating-star{
+    object-fit: cover;
+    width: 10%;
+}
+
+.recent-card-link:hover .recent-card,
+.recent-card-link:active .recent-card {
+    transform: scale(0.98);
+    background-color: var(--primary-red2);
+    color: var(--primary-white1);
+}
+
+/*===============================
+  FOOTER HOME NAV
+===============================*/
+.home-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    padding: 15px 10px calc(15px + env(safe-area-inset-bottom, 0px));
+    
+    background-color: var(--primary-white1);
+    border-top: 1px solid var(--border-black);
+}
+
+.home-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+}
+
+.home-nav a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-radius 0.2s ease;
+}
+
+.home-nav a img.icon {
+    object-fit: cover;
+    width: 36px;
+    height: auto;
+}
+
+.home-nav a .icon {
+    fill: #77757a;
+    transition: fill 0.2s ease;
+}
+
+.home-nav a.active .icon {
+    fill: #ff3b30; 
+    filter: invert(1) brightness(2);
+}
+
+.home-nav a.active {
+    background-color: var(--primary-red2);
+    border-radius: 50%;
+}
