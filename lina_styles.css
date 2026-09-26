@@ -44,6 +44,10 @@ html {
     scroll-behavior: smooth;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: var(--main-font);
     color: var(--text-black);
@@ -423,4 +427,360 @@ header {
 .home-nav a.active {
     background-color: var(--primary-red2);
     border-radius: 50%;
+}
+
+/* Layout for the sidebar and main content. */
+.app-shell {
+    display: flex;
+    align-items: stretch;
+    min-height: 100vh;
+}
+
+.main-wrapper {
+    flex: 1;
+    min-width: 0; 
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---------- Desktop sidebar: hidden until the desktop breakpoint ---------- */
+.sidebar {
+    display: none;
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sidebar-profile img {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--border-black);
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: var(--text-black);
+    font-size: 0.95em;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-link:hover {
+    background-color: var(--primary-white1);
+}
+
+.sidebar-link.active {
+    color: var(--primary-red2);
+    background-color: rgba(196, 61, 61, 0.1);
+    font-weight: 700;
+}
+
+.sidebar-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.sidebar-nav-secondary {
+    margin-top: auto;
+}
+
+.sidebar-upload-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background-color: var(--primary-red2);
+    color: var(--primary-white1);
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.sidebar-upload-btn:hover {
+    background-color: var(--primary-red1);
+}
+
+/* ---------- Desktop search topbar: hidden until the desktop breakpoint ---------- */
+.topbar-desktop {
+    display: none;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--primary-white1);
+    border: 1px solid var(--border-black);
+    border-radius: 8px;
+    padding: 8px 14px;
+    width: 240px;
+}
+
+.search-bar-icon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.search-bar input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-family: var(--main-font);
+    font-size: 0.95em;
+    color: var(--text-black);
+}
+
+/* ============================================================
+   RESPONSIVE MEDIA QUERIES
+   ============================================================ */
+
+/* ----------------- TABLET: 768px and up ----------------- */
+@media (min-width: 768px) {
+
+    /* ---- Landing page ---- */
+    body.landing-page {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    .start-logo-and-desc img {
+        margin: 0 auto 10px;
+        width: 160px;
+    }
+
+    .start-logo-and-desc h3 {
+        font-size: 2.5em;
+    }
+
+    .start-logo-and-desc p {
+        font-size: 1.1em;
+        margin-top: 0;
+    }
+
+    .start-tagline {
+        margin: 60px auto 0;
+    }
+
+    .start-tagline h4 {
+        font-size: 1.4em;
+    }
+
+    /* ---- Header ---- */
+    header {
+        gap: 8vw;
+        padding: 20px 24px 12px;
+    }
+
+    /* ---- Main functions: 3-column grid instead of wrapping flex ---- */
+    .main-functions {
+        padding: 16px 20px;
+    }
+
+    .functions {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        padding: 16px 0;
+    }
+
+    .function-card-link {
+        width: 100%;
+    }
+
+    .function-card {
+        height: 110px;
+    }
+
+    .function-card img {
+        max-width: 56px;
+    }
+
+    /* ---- Lessons to discover: 2-column grid, no horizontal scroll ---- */
+    .discover-lessons {
+        padding: 0 20px;
+    }
+
+    .categories {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        padding: 16px 0;
+        overflow-x: visible;
+        overflow-y: visible;
+    }
+
+    .category-card-link {
+        width: 100%;
+    }
+
+    .category-card {
+        height: 110px;
+    }
+
+    .category-card img {
+        max-width: 56px;
+    }
+
+    /* ---- Recent lessons: 2-column grid per date group ---- */
+    .recent-lessons {
+        padding: 0 20px;
+    }
+
+    .dated-recent-lessons {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        padding: 16px 0;
+        overflow-x: visible;
+        overflow-y: visible;
+    }
+
+    .recent-card-link {
+        width: 100%;
+    }
+
+    .recent-card {
+        height: 280px;
+    }
+
+    .recent-card .recent-img {
+        max-height: 130px;
+    }
+}
+
+/* ----------------- DESKTOP: 1024px and up ----------------- */
+@media (min-width: 1024px) {
+
+    /* ---- Landing page ---- */
+
+    #start-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        text-align: center;
+    }
+
+    .start-logo-and-desc img {
+        width: 190px;
+    }
+
+    .start-logo-and-desc h3 {
+        font-size: 3.2em;
+    }
+
+    .start-logo-and-desc p {
+        font-size: 1.2em;
+    }
+
+    .start-tagline h4 {
+        font-size: 1.6em;
+    }
+
+    /* ---- Hide all mobile-only chrome ---- */
+    header,
+    .home-nav {
+        display: none;
+    }
+
+    .dated-recent-lessons:last-of-type {
+        margin-bottom: 40px; /* no longer needs to clear a fixed bottom nav */
+    }
+
+    /* ---- Sidebar takes over ---- */
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 250px;
+        flex-shrink: 0;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        padding: 24px 16px;
+        background-color: var(--primary-white2);
+        border-right: 1px solid var(--border-black);
+    }
+
+    .sidebar-logo img#logo {
+        width: 32px;
+    }
+
+    .sidebar-logo img#logo-text {
+        width: 56px;
+    }
+
+    .sidebar-profile {
+        display: flex;
+        justify-content: center;
+    }
+
+    /* ---- Desktop search topbar ---- */
+    .topbar-desktop {
+        display: flex;
+        justify-content: flex-end;
+        padding: 28px 40px 0;
+    }
+
+    /* ---- Content area spacing ---- */
+    .main-functions,
+    .discover-lessons,
+    .recent-lessons {
+        padding: 0 40px;
+    }
+
+    .main-functions {
+        padding-top: 24px;
+    }
+
+    /* ---- Main functions: 4-column grid ---- */
+    .functions {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* ---- Lessons to discover: 4-column grid ---- */
+    .categories {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* ---- Recent lessons: flexible grid, more cards per row ---- */
+    .dated-recent-lessons {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+
+    .recent-card {
+        height: 240px;
+    }
+
+    .recent-card .recent-img {
+        max-height: 110px;
+    }
 }
